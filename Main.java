@@ -15,6 +15,13 @@ public class Main implements Runnable, ActionListener{
 
   JButton firstButton;
   JButton secondButton;  
+
+  // create the random generator
+  Random rand = new Random();
+
+  // create a random number
+  int randNum = rand.nextInt(100) + 1; 
+
   
 
 
@@ -81,15 +88,6 @@ public class Main implements Runnable, ActionListener{
     // get the command from the action
     String command = e.getActionCommand();
 
-    // create the random generator
-    Random rand = new Random();
-
-    // create a random number
-    int randNum = rand.nextInt(100) + 1;
-    
-    // declare the guess variable
-    int guess; 
-
     // do something depending on what button is pressed
     if(command.equals("Submit")){
       // get the text from the text box
@@ -106,6 +104,8 @@ public class Main implements Runnable, ActionListener{
       }else if(firstNum == randNum){
         // tell them they won 
         secondLabel.setText("Congratulations! You Win!");
+        // reset the random number
+        randNum = rand.nextInt(100) + 1;
       }
     }else if(command.equals("New Number")){
       // reset the text field number to show nothing
